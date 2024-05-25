@@ -1,6 +1,3 @@
-
-import { Home } from "lucide-react"
-
 export const NavItems = [
   {
     name: "Home",
@@ -14,7 +11,6 @@ export const NavItems = [
     name: "Blogs",
     link: "/blogs",
   },
-  ,
   {
     name: "Projects",
     link: "/projects",
