@@ -8,10 +8,18 @@ async function GetAllBlogs() {
 
 async function GetAllProjects() {
   const response = await fetch('https://api.saidevdhal.xyz/v1/all/projects', {
-    next: { revalidate: 5 },
+    next: { revalidate: 15 },
   });
   const data = await response.json();
   return data;
 }
 
-export { GetAllBlogs, GetAllProjects}
+async function GetAllReviews() {
+  const response = await fetch('https://api.saidevdhal.xyz/v1/all/testimonials', {
+    next: { revalidate: 15 },
+  });
+  const data = await response.json();
+  return data;
+}
+
+export { GetAllBlogs, GetAllProjects, GetAllReviews}
