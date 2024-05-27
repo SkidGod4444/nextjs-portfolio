@@ -90,7 +90,7 @@ export const InfiniteMovingCards = ({
         {items.map((item, idx) => (
           <BackgroundGradient key={idx} className="rounded-[22px] max-w-full bg-zinc-900">
           <li
-            className="w-[80vw] max-w-full relative rounded-xl flex-shrink-0 p-5 md:p-16 md:w-[50vw]"
+            className="w-[80vw] max-w-full relative rounded-[22px] flex-shrink-0 p-5 md:p-16 md:w-[50vw]"
             style={{
               background:
                 "linear-gradient(180deg, var(--slate-800), var(--slate-900)",

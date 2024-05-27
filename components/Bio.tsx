@@ -1,6 +1,5 @@
 import React from 'react'
 import { FlipWords } from './ui/FlipWords';
-import { BackgroundBeams } from './ui/BgBeams';
 
 const Bio = () => {
     
@@ -12,7 +11,6 @@ const Bio = () => {
       <FlipWords words={words} duration={8000}/>
     to inspire others and share my experiences as a developer and entrepreneur.
       </div>
-      <BackgroundBeams />
     </div>
   )
 }

@@ -38,8 +38,8 @@ const Reviews: React.FC = () => {
   return (
     <div className="text-center text-4xl font-bold md:text-5xl lg:text-6xl py-20 mx-auto px-20">
       <h1 className="heading">
-      Some {""}
-        <span className="text-indigo-500">kind Words</span>
+      Kind {""}
+        <span className="text-indigo-500">Words</span>
       </h1>
       <div className="flex flex-col items-center max-lg:mt-10 mt-10">
           <InfiniteMovingCards items={reviews} direction="right" speed="normal" className="mt-10 bg-transparent" />

@@ -3,7 +3,7 @@ import { GetAllProjects } from "@/db/func";
 import React, { useEffect, useState } from "react";
 import { PinContainer } from "./ui/3dPin";
 import { CircleArrowOutUpRight } from "lucide-react";
-
+import JadooyiButton from "./ui/JadooyiButton";
 
 interface ProjectItem {
   id: string;
@@ -46,15 +46,15 @@ const Projects: React.FC = () => {
         Latest {""}
         <span className="text-indigo-500">Projects</span>
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
+      <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10 ">
         {projects.slice(0, 6).map((item) => (
           <div
             key={item.id}
-            className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw]"
+            className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw] "
           >
             <PinContainer title="/blogs" href="/blogs">
-              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-4">
-                <div className="relative w-full h-full overflow-hidden lg:rounded-3xl bg-[#13162d]">
+              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-4 ">
+                <div className="relative w-full h-full overflow-hidden rounded-3xl bg-[#13162d] border-2 border-indigo-500 border-opacity-50">
                   <img src="/bg.png" alt={item.id} />
                 </div>
                 <img
