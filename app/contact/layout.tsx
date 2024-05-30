@@ -1,8 +1,5 @@
-import{ Metadata } from "next";
-import { Inter } from "next/font/google";
 import { siteConfig } from "@/db/fake.data";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: siteConfig.contact.title,
@@ -10,17 +7,9 @@ export const metadata: Metadata = {
   }
 
 interface ContactLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export default function ContactLayout({
-  children,
-}: ContactLayoutProps) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        {children}
-        </body>
-    </html>
-  );
+export default async function ContactLayout({ children }: ContactLayoutProps) {
+  return <div>{children}</div>;
 }

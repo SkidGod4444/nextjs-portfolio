@@ -1,8 +1,10 @@
-import{ Metadata } from "next";
+import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Themes.provider";
-import { siteConfig } from "@/db/fake.data";
+import { NavItems, siteConfig } from "@/db/fake.data";
+import { FloatingNav } from "@/components/ui/FloatingNav";
+import MobNav from "@/components/ui/MobNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -62,26 +64,28 @@ export const metadata: Metadata = {
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
-}
+};
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
-export default function RootLayout({
-  children,
-}: RootLayoutProps) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider
-        attribute="class"
-        defaultTheme="dark"
-        disableTransitionOnChange
-      >
-        {children}
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          <div className="hidden md:block">
+            <FloatingNav navItems={NavItems} />
+          </div>
+          <MobNav />
+          {children}
         </ThemeProvider>
-        </body>
+      </body>
     </html>
   );
 }

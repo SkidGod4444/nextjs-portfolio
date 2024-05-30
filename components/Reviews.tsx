@@ -42,7 +42,7 @@ const Reviews: React.FC = () => {
         <span className="text-indigo-500">Words</span>
       </h1>
       <div className="flex flex-col items-center max-lg:mt-10 mt-10">
-          <InfiniteMovingCards items={reviews} direction="right" speed="normal" className="mt-10 bg-transparent" />
+          <InfiniteMovingCards items={reviews} direction="right" speed="normal" className="mt-10" />
 
       </div>
     </div>
