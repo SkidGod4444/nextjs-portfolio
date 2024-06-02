@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { PinContainer } from "./ui/3dPin";
 import { CircleArrowOutUpRight } from "lucide-react";
 import JadooyiButton from "./ui/JadooyiButton";
+import { ProjectCardWrapper } from "./ui/ProjectCards";
 
 interface ProjectItem {
   id: string;
@@ -13,6 +14,7 @@ interface ProjectItem {
   date?: string;
   archived?: boolean;
   iconsList?: string;
+  link?: string;
   stacks: string[];
   labels: string[];
 }
@@ -41,16 +43,23 @@ const Projects: React.FC = () => {
   if (error) console.error("Fuck: " + error);
 
   return (
-    <div className="text-center text-4xl font-bold md:text-5xl lg:text-6xl py-20 mx-auto px-20">
+    <div className="text-center text-3xl font-bold md:text-5xl lg:text-6xl py-20 mx-auto px-5">
       <h1 className="heading">
-        Latest {""}
-        <span className="text-indigo-500">Projects</span>
+      <span className="before:block before:absolute before:-inset-1 before:skew-y-3 before:bg-indigo-400 before:dark:bg-indigo-500 relative inline-block">
+          <span className="relative head-text text-white">Latest</span>{" "}
+        </span>{" "}
+        Projects
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10 ">
+
+      <span className="text-center font-semibold md:text-xl text-neutral-500 text-base">
+        Don&apos;t just take my word for it. Here&apos;s what real people are
+        saying.
+      </span>
+      {/* <div className="flex flex-wrap items-center justify-center p-4 gap-2 mt-3 ">
         {projects.slice(0, 6).map((item) => (
           <div
             key={item.id}
-            className="sm:h-[41rem] h-[32rem] lg:min-h-[32.5rem] flex items-center justify-center sm:w-[570px] w-[80vw] "
+            className="h-[40rem] w-full flex items-center justify-center "
           >
             <PinContainer title="/blogs" href="/blogs">
               <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-4 ">
@@ -92,6 +101,9 @@ const Projects: React.FC = () => {
             </PinContainer>
           </div>
         ))}
+      </div> */}
+      <div className="max-w-5xl mx-auto px-8">
+        <ProjectCardWrapper items={projects} className="mt-10" />
       </div>
     </div>
   );

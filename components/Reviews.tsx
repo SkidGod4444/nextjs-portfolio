@@ -2,10 +2,12 @@
 import React, { useEffect, useState } from "react";
 import { InfiniteMovingCards } from "./ui/MovingCards";
 import { GetAllReviews } from "@/db/func";
+import { cn } from "@/lib/utils";
+import Marquee from "./ui/Morquee";
 
 interface ReviewsItem {
   id: string;
-  title: string;
+  title?: string;
   name: string;
   quote: string;
   pic: string;
@@ -35,15 +37,72 @@ const Reviews: React.FC = () => {
   if (loading) console.log("Loading...");
   if (error) console.error("Fuck: " + error);
 
-  return (
-    <div className="text-center text-4xl font-bold md:text-5xl lg:text-6xl py-20 mx-auto px-20">
-      <h1 className="heading">
-      Kind {""}
-        <span className="text-indigo-500">Words</span>
-      </h1>
-      <div className="flex flex-col items-center max-lg:mt-10 mt-10">
-          <InfiniteMovingCards items={reviews} direction="right" speed="normal" className="mt-10" />
+  const firstRow = reviews.slice(0, reviews.length / 2);
+  const secondRow = reviews.slice(reviews.length / 2);
 
+  const ReviewCard = ({
+    pic,
+    name,
+    username,
+    quote,
+  }: {
+    pic: string;
+    name: string;
+    username?: string;
+    quote: string;
+  }) => {
+    return (
+      <figure
+        className={cn(
+          "relative w-64 cursor-pointer overflow-hidden rounded-xl border p-4",
+          // light styles
+          "border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]",
+          // dark styles
+          "dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]"
+        )}
+      >
+        <div className="flex flex-row items-center gap-2">
+          <img
+            className="rounded-full"
+            width="32"
+            height="32"
+            alt=""
+            src={pic}
+          />
+          <div className="flex flex-col">
+            <figcaption className="text-sm font-medium dark:text-white">
+              {name}
+            </figcaption>
+            <p className="text-xs font-medium dark:text-white/40">{username}</p>
+          </div>
+        </div>
+        <blockquote className="mt-2 font-normal text-sm">{quote}</blockquote>
+      </figure>
+    );
+  };
+
+  return (
+    <div className="text-center text-3xl font-bold md:text-5xl lg:text-6xl py-20 mx-auto px-5">
+      <h1 className="heading">
+      <span className="before:block before:absolute before:-inset-1 before:skew-y-3 before:bg-indigo-400 before:dark:bg-indigo-500 relative inline-block">
+          <span className="relative head-text text-white">People</span>{" "}
+        </span>{" "}
+        Says
+      </h1>
+      <span className="text-center font-semibold md:text-xl text-neutral-500 text-base">Don&apos;t just take my word for it. Here&apos;s what real people are saying.</span>
+      <div className="relative flex w-full h-full flex-col items-center overflow-hidden max-lg:mt-20 pt-10 mt-10">
+        <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map((review) => (
+          <ReviewCard key={review.id} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
+          <ReviewCard key={review.id} {...review} />
+        ))}
+      </Marquee>
+      <div className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-white dark:from-background"></div>
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-white dark:from-background"></div>
       </div>
     </div>
   );
