@@ -63,7 +63,7 @@ const Hero = () => {
           background="transparent"
           minSize={0.6}
           maxSize={1.6}
-          particleDensity={150}
+          particleDensity={70}
           className="w-full h-full"
           particleColor="#FFFFFF"
         />
@@ -86,8 +86,8 @@ const Hero = () => {
             <AlertDialogTrigger>
               <JadooyiButton
                 title="Download Resume"
-                position="left"
-                icon={<CircleArrowDown />}
+                position="right"
+                icon={<CircleArrowDown className="w-5 h-5" />}
               />
             </AlertDialogTrigger>
             <AlertDialogContent className="rounded-xl bg-transparent border-2 backdrop-blur-lg">

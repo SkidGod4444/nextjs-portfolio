@@ -1,8 +1,9 @@
 import React from "react";
 import JadooyiButton from "./ui/JadooyiButton";
-import { Navigation } from "lucide-react";
+import { MessageCirclePlus } from "lucide-react";
 import { BackgroundBeams } from "./ui/BgBeams";
 import { links } from "@/db/fake.data";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -17,11 +18,13 @@ const Footer = () => {
         <p className="text-neutral-500 text-base md:text-lg md:mt-10 my-5 text-center">
           Let&apos;s discuss how I can help you achieve your goals
         </p>
+        <Link href="/contact">
         <JadooyiButton
           title="Let's get in touch"
           position="right"
-          icon={<Navigation className="w-6 h-6" />}
+          icon={<MessageCirclePlus className="w-5 h-5" />}
         />
+        </Link>
       </div>
       <div className="container flex flex-col items-center justify-between gap-4 md:h-24 md:flex-row mt-6 relative z-10">
         <p className="text-balance text-center text-sm leading-loose text-muted-foreground md:text-left">

@@ -59,6 +59,7 @@ export const links = {
     linkedin: "https://www.linkedin.com/in/saidevdhal/",
     youtube: "https://www.youtube.com/@skidgod4444",
     instagram: "https://www.instagram.com/i.skidgod",
+    discord: "https://discord.gg/floater-hq-1066657049313816606",
   },
 };
 

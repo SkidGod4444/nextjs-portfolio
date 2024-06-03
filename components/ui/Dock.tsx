@@ -9,6 +9,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "./tooltip";
+import Link from "next/link";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;
@@ -70,6 +71,7 @@ export interface DockIconProps {
   distance?: number;
   mouseX?: any;
   className?: string;
+  slug: string;
   children?: React.ReactNode;
   props?: PropsWithChildren;
 }
@@ -81,6 +83,7 @@ const DockIcon = ({
   distance = DEFAULT_DISTANCE,
   mouseX,
   className,
+  slug,
   children,
   ...props
 }: DockIconProps) => {
@@ -105,6 +108,7 @@ const DockIcon = ({
   });
 
   return (
+    <Link href={slug}>
     <motion.div
       ref={ref}
       style={{ width }}
@@ -123,6 +127,7 @@ const DockIcon = ({
         </Tooltip>
       </TooltipProvider>
     </motion.div>
+    </Link>
   );
 };
 
