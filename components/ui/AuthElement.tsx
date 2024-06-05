@@ -13,7 +13,7 @@ export function AuthForm() {
     console.log("Form submitted");
   };
   return (
-    <div className="max-w-md w-full mx-auto rounded-md md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
+    <div className="z-50 max-w-md w-full mx-auto rounded-md md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
       <h2 className="font-bold text-xl text-neutral-800 dark:text-neutral-200">
         Authorize Yourself 👻
       </h2>
@@ -64,16 +64,3 @@ const BottomGradient = () => {
   );
 };
 
-const LabelInputContainer = ({
-  children,
-  className,
-}: {
-  children: React.ReactNode;
-  className?: string;
-}) => {
-  return (
-    <div className={cn("flex flex-col space-y-2 w-full", className)}>
-      {children}
-    </div>
-  );
-};

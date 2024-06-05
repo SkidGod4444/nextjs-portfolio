@@ -1,9 +1,6 @@
 "use client";
 import { GetAllProjects } from "@/db/func";
 import React, { useEffect, useState } from "react";
-import { PinContainer } from "./ui/3dPin";
-import { CircleArrowOutUpRight } from "lucide-react";
-import JadooyiButton from "./ui/JadooyiButton";
 import { ProjectCardWrapper } from "./ui/ProjectCards";
 
 interface ProjectItem {
@@ -55,53 +52,6 @@ const Projects: React.FC = () => {
         Don&apos;t just take my word for it. Here&apos;s what real people are
         saying.
       </span>
-      {/* <div className="flex flex-wrap items-center justify-center p-4 gap-2 mt-3 ">
-        {projects.slice(0, 6).map((item) => (
-          <div
-            key={item.id}
-            className="h-[40rem] w-full flex items-center justify-center "
-          >
-            <PinContainer title="/blogs" href="/blogs">
-              <div className="relative flex items-center justify-center sm:w-[570px] w-[80vw] overflow-hidden sm:h-[40vh] h-[30vh] mb-4 ">
-                <div className="relative w-full h-full overflow-hidden rounded-3xl bg-[#13162d] border-2 border-indigo-500 border-opacity-50">
-                  <img src="/bg.png" alt={item.id} />
-                </div>
-                <img
-                  src={item.img ?? ""}
-                  alt={item.id}
-                  className="z-10 absolute bottom-0"
-                />
-              </div>
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
-                {item.title}
-              </h1>
-              <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
-                {item.desc}
-              </p>
-              <div className="flex items-center justify-between mt-7 mb-3">
-                <div className="flex items-center">
-                  {Array.isArray(item.iconsList) &&
-                    item.iconsList.map((icon, index) => (
-                      <div
-                        key={icon}
-                        className="border border-white/[0.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                        style={{
-                          transform: `translateX(-${5 * index * 2} px)`,
-                        }}
-                      >
-                        <img src={icon} alt={icon} className="p-2" />
-                      </div>
-                    ))}
-                </div>
-                <div className="flex justify-center items-center">
-                  <p className="flex font-normal lg:text-xl md:text-xs text-sm text-indigo-500">Read More</p>
-                  <CircleArrowOutUpRight className="ms-3" color="#6366F1"/>
-                </div>
-              </div>
-            </PinContainer>
-          </div>
-        ))}
-      </div> */}
       <div className="max-w-5xl mx-auto px-8">
         <ProjectCardWrapper items={projects} className="mt-10" />
       </div>

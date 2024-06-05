@@ -6,9 +6,9 @@ export const siteConfig = {
   description:
     "Beautifully designed portfolio website with Next.js, Tailwind CSS, and TypeScript. Easily customizable and fast to build. By Saidev Dhal.",
   about: {
-    title: "Building Blocks.",
+    title: "About",
     description:
-      "Beautifully designed. Copy and paste into your apps. Open Source.",
+      "Know more about Saidev Dhal.",
   },
   projects: {
     title: "Projects",
