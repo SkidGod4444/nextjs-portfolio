@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { cn } from "@/utils/cn";
-import { IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
+import { IconBrandDiscord, IconBrandGithub, IconBrandGoogle } from "@tabler/icons-react";
 import { Button } from "./button";
 import ShinyButton from "./ShinyButton";
 import Link from "next/link";
@@ -26,29 +26,39 @@ export function AuthForm() {
 
         <div className="flex flex-col space-y-4">
           <Button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
             type="submit"
           >
-            <IconBrandGithub className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            <IconBrandGithub className="h-6 w-6 text-neutral-300 hover:text-white" />
+            <span className="text-neutral-700 dark:text-neutral-300 text-lg hover:text-white">
               GitHub
             </span>
             <BottomGradient />
           </Button>
           <Button
-            className=" relative group/btn flex space-x-2 items-center justify-start px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
             type="submit"
           >
-            <IconBrandGoogle className="h-4 w-4 text-neutral-800 dark:text-neutral-300" />
-            <span className="text-neutral-700 dark:text-neutral-300 text-sm">
+            <IconBrandGoogle className="h-6 w-6 text-neutral-300 hover:text-white" />
+            <span className="text-neutral-700 dark:text-neutral-300 text-lg hover:text-white">
               Google
+            </span>
+            <BottomGradient />
+          </Button>
+          <Button
+            className=" relative group/btn flex space-x-2 items-center justify-center px-4 w-full text-black rounded-md h-10 font-medium shadow-input bg-gray-50 dark:bg-zinc-900 dark:shadow-[0px_0px_1px_1px_var(--neutral-800)]"
+            type="submit"
+          >
+            <IconBrandDiscord className="h-6 w-6 text-neutral-800 dark:text-neutral-300" />
+            <span className="text-neutral-700 dark:text-neutral-300 text-lg hover:text-white">
+              Discord
             </span>
             <BottomGradient />
           </Button>
         </div>
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
           <Link href="/">
-            <ShinyButton text="Back" />
+            <ShinyButton text="Cancle" />
           </Link>
       </form>
     </div>

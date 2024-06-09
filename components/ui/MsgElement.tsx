@@ -1,6 +1,5 @@
-import * as React from "react"
+import * as React from "react";
 
-import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
@@ -8,24 +7,28 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Input } from "./ActernityInput"
-import ShinyButton from "./ShinyButton"
-import { BorderBeam } from "./BorderBeam"
+} from "@/components/ui/select";
+import ShinyButton from "./ShinyButton";
+import { BorderBeam } from "./BorderBeam";
+import { Textarea } from "./textarea";
 
 export function MsgElement() {
   return (
     <Card className="relative w-[350px]">
       <CardHeader>
-        <CardTitle className="text-4xl text-center font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600">Mailer</CardTitle>
-        <CardDescription className="text-center">DM me directly through this mail box.</CardDescription>
+        <CardTitle className="text-4xl text-center font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600">
+          Mailer
+        </CardTitle>
+        <CardDescription className="text-center">
+          DM me directly through this mail box.
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <form className="z-10">
@@ -41,21 +44,21 @@ export function MsgElement() {
                 </SelectContent>
               </Select>
             </div>
-            <div className="z-10 flex flex-col space-y-1.5">
-              <Input id="name" placeholder="Type your message." type="text" />
+            <div className="z-10 grid w-full gap-1.5">
+              <Textarea placeholder="Type your message here." id="message-2" />
+              <p className="text-sm text-muted-foreground">
+                You will get your reply directly in your mail.
+              </p>
             </div>
           </div>
         </form>
       </CardContent>
       <CardFooter className="flex justify-end">
         <div className="z-20">
-        <ShinyButton text="send"/>
+          <ShinyButton text="send" />
         </div>
       </CardFooter>
-        <p className="text-balance font-normal p-2 text-center text-sm leading-loose text-muted-foreground md:text-center">
-          You will get your reply directly in your mail.
-        </p>
-      <BorderBeam className="z-0"/>
+      <BorderBeam className="z-0" />
     </Card>
-  )
+  );
 }

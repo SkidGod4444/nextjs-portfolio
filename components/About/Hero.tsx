@@ -1,6 +1,5 @@
 import React from "react";
-import { HeroHighlight, Highlight } from "../ui/HeroHighlight";
-import AnimatedShinyText from "../ui/shiny-text";
+import { Highlight } from "../ui/HeroHighlight";
 import DotPattern from "../ui/DotPattern";
 import { cn } from "@/lib/utils";
 

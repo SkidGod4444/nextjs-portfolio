@@ -22,4 +22,12 @@ async function GetAllReviews() {
   return data;
 }
 
-export { GetAllBlogs, GetAllProjects, GetAllReviews}
+async function GetAllLabels() {
+  const response = await fetch('https://api.saidevdhal.xyz/v1/all/labels', {
+    next: { revalidate: 15 },
+  });
+  const data = await response.json();
+  return data;
+}
+
+export { GetAllBlogs, GetAllProjects, GetAllReviews, GetAllLabels}

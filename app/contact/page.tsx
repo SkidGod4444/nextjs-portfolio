@@ -6,7 +6,7 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <main className="relative bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-8 px-4">
+    <main className="relative bg-black flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-8 px-4">
       <div className="max-w-7xl w-full">
         <ContactElement/>
         <div className="hidden md:flex justify-center items-center mb-10">

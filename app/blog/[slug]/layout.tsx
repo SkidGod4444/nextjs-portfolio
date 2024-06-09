@@ -6,10 +6,10 @@ export const metadata: Metadata = {
     description: siteConfig.blogs.description,
   }
 
-  interface BlogsLayoutProps {
+  interface BlogLayoutProps {
     children: React.ReactNode;
   }
   
-  export default async function BlogsLayout({ children }: BlogsLayoutProps) {
+  export default async function BlogLayout({ children }: BlogLayoutProps) {
     return <div>{children}</div>;
   }

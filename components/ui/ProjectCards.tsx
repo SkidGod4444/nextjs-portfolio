@@ -9,33 +9,38 @@ import { Button } from "./button";
 export const ProjectCardWrapper = ({
   items,
   className,
+  isPreview,
 }: {
   items: {
     title: string;
     desc: string;
     id: string;
     link?: string;
+    blog?: string;
     src?: string;
-
     stacks: string[];
   }[];
   className?: string;
+  isPreview?: boolean;
 }) => {
-  let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  // Determine the items to render based on isPreview
+  const itemsToRender = isPreview ? items.slice(0, 6) : items;
 
   return (
     <div className={cn("grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 py-15 md:py-10", className)}>
-      {items.map((item, idx) => (
+      {itemsToRender.map((item, idx) => (
         <div
           key={item?.id}
-          className="relative group block  p-2 h-full w-full"
+          className="relative group block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
               <motion.span
-                className="absolute inset-0 h-full w-full bg-neutral-200 block  rounded-3xl"
+                className="absolute inset-0 h-full w-full bg-neutral-200 block rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
                 animate={{
@@ -52,7 +57,7 @@ export const ProjectCardWrapper = ({
           <ProjectCard>
             <ProjectCardImage src={item.src || ""} />
             <ProjectCardTitle>{item.title}</ProjectCardTitle>
-            <ProjectCardDescription>{item.desc}</ProjectCardDescription>
+            <ProjectCardDescription BlogLink={item.blog}>{item.desc}</ProjectCardDescription>
             <ProjectTechStacks stacks={item.stacks} />
             <ProjectCardFooter src={item.src || ""} live={item.link || ""} />
           </ProjectCard>
@@ -103,8 +108,10 @@ export const ProjectCardTitle = ({
 export const ProjectCardDescription = ({
   className,
   children,
+  BlogLink,
 }: {
   className?: string;
+  BlogLink?: string;
   children: React.ReactNode;
 }) => {
   return (
@@ -115,6 +122,11 @@ export const ProjectCardDescription = ({
       )}
     >
       {children}
+      {BlogLink && (
+        <Link href={BlogLink}>
+        <span className="ml-1 hover:underline text-indigo-400">Read More.</span>
+        </Link>
+      )}
     </p>
   );
 };
